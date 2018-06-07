@@ -1,21 +1,14 @@
-//let nombre = 'Superman';
-var nombre = 'Superman';
-
-if( true ){
-    // let nombre = 'SuperGirl';
-    var nombre = 'SuperGirl';
+let deadpool = {
+    nombre : 'Wade',
+    apellido : 'Winston',
+    poder : 'Regeneracion',
+    getNombre: function() {
+        return `${ this.nomber } ${ this.apellido } - poder ${ this.poder }`
+    }
 }
 
-for( var i=0 ; i <= 5 ; i++){
-    console.log(i);
-}
+console.log(deadpool.getNombre());
 
-console.log(i);
+let { nombre:nom,apellido,poder } = deadpool;
 
-/*for( let a=0 ; a <= 5 ; a++){
-    console.log(a);
-}
-
-console.log(a);*/
-
-console.log(nombre);
+console.log(nom,apellido,poder);
