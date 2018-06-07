@@ -1,14 +1,25 @@
+
+// function sumar( a,b){
+//     return a + b;
+// }
+
+let sumar = ( a,b ) => a + b;
+console.log( sumar(1,3) );
+
+
+// function saludar(){
+//     return 'Hola mundo!';
+// }
+
+let saludar = () => 'Hola mundo!';
+console.log( saludar() );
+
 let deadpool = {
     nombre : 'Wade',
     apellido : 'Winston',
     poder : 'Regeneracion',
-    getNombre: function() {
-        return `${ this.nomber } ${ this.apellido } - poder ${ this.poder }`
+    getNombre(){
+        return `${ this.nombre } ${ this.apellido} - poder ${this.poder}`;
     }
 }
-
 console.log(deadpool.getNombre());
-
-let { nombre:nom,apellido,poder } = deadpool;
-
-console.log(nom,apellido,poder);
