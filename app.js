@@ -1,25 +1,24 @@
 
-// function sumar( a,b){
-//     return a + b;
-// }
+// Callback sencillo
+// setTimeout( () => {
+//     console.log('Hola mundo!');
+// }, 3000 );
 
-let sumar = ( a,b ) => a + b;
-console.log( sumar(1,3) );
-
-
-// function saludar(){
-//     return 'Hola mundo!';
-// }
-
-let saludar = () => 'Hola mundo!';
-console.log( saludar() );
-
-let deadpool = {
-    nombre : 'Wade',
-    apellido : 'Winston',
-    poder : 'Regeneracion',
-    getNombre(){
-        return `${ this.nombre } ${ this.apellido} - poder ${this.poder}`;
+let getUserById = ( id, callback ) => {
+    let usuario = {
+        nombre : 'Urbano',
+        id
+    }
+    if( id === 10 ){
+        callback(`El usuario con id ${ id }, no existe en la BD`);
+    }else{
+        callback( null,usuario );
     }
 }
-console.log(deadpool.getNombre());
+
+getUserById( 1 , ( err,usuario ) => {
+    if( err ){
+        return console.log(err);
+    }
+        console.log('Usuario de BD',usuario);
+})
