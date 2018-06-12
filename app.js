@@ -1,59 +1,25 @@
-let empleados = [
-    {
-        id:1,
-        nombre:'Urbano'
-    },
-    {
-        id:2,
-        nombre:'Martha'
-    },
-    {
-        id:3,
-        nombre:'Jose'
-    }
-];
+/*
+*   ASYNC AWAIT
+*/
 
-let salarios = [
-    {
-        id:1,
-        salario:100
-    },
-    {
-        id:2,
-        salario:200
-    }
-];
-
-let getEmpleado = ( id ) => {
+let getNombre = async() => {
+    
     return new Promise( (resolve,reject) => {
-        let empleadoDB = empleados.find( empleado => empleado.id === id );
-        if( !empleadoDB ){
-            reject(`No existe un empleado con el ID ${id}`);
-        }else{
-            resolve(empleadoDB);
-        }
-    }); 
+        setTimeout( () => {
+            resolve('Fernando');
+        }, 3000 );
+    });
+
 };
 
-let getSalario = ( empleado ) => {
-    return new Promise( (resolve,reject) => {
-        let salarioDB = salarios.find( salario => salario.id === empleado.id );
-        if( !salarioDB ){
-            reject(`No se encuntra el salario para ${empleado.nombre}`);
-        }else{
-            resolve( {
-                nombre: empleado.nombre,
-                salario: salarioDB.salario,
-                id: empleado.id             
-            } );
-        }
-    }); 
-}
+let saludo = async() => {
+    let nombre = await getNombre();
+    return `Hola ${nombre}`
+};
 
-getEmpleado(10).then( empleado => {
-        return getSalario( empleado );
-    }).then( resp => {
-        console.log(`El salario de ${resp.nombre} es de ${resp.salario}`);
-    }).catch( err => {
-        console.log( err );
-    });
+
+saludo().then( mensaje => {
+    console.log(mensaje);
+}).catch( err => {
+    console.log(err);
+});
