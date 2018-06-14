@@ -1,0 +1,25 @@
+{
+  "name": "nodejscourse",
+  "version": "1.0.0",
+  "description": "Esta es una aplicacion de linea de comandos",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UrbanRude/NodeJSCourse.git"
+  },
+  "author": "Urbano Ceron Santillan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/UrbanRude/NodeJSCourse/issues"
+  },
+  "homepage": "https://github.com/UrbanRude/NodeJSCourse#readme",
+  "dependencies": {
+    "yargs": "^11.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  }
+}
