@@ -1,14 +1,14 @@
 
 const fs = require('fs');
 
-let crearArchivo = ( base ) => {
+let crearArchivo = ( base,limite=10 ) => {
     return new Promise( ( resolve,reject ) => {
         if( !Number( base )){
             reject(`El valor introducido ${ base } no es un numero`);
             return;
         }
         let data = '';
-        for(let i=1; i<=10; i++){
+        for(let i=1; i<=limite; i++){
             data += `${ base } * ${ i } = ${ base * i } \n`;
         }
         fs.writeFile( `tablas/tabla-${ base }.txt`, data, ( err ) => {
@@ -21,7 +21,24 @@ let crearArchivo = ( base ) => {
     });
 }
 
+let listarTabla = ( base,limite = 10 ) => {
+    return new Promise( (resolve,reject) => {
+       if( !Number( base ) || !Number( limite )){
+           reject(`Uno de los valores no es un numero`);
+           return;
+       } 
+       let data = '';
+       for( let i=1; i <= limite; i++  ){
+           data += `${ base } * ${ i } = ${ base * i } \n`;
+       }
+       resolve( data );
+
+    } );
+}
+
+
 module.exports = {
-    crearArchivo
+    crearArchivo,
+    listarTabla
 }
 
