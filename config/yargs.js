@@ -1,20 +1,31 @@
 
-const opts = {
-    base: {
-        demand: true,
-        alias: 'b'
-    },
-    limite:{
-        alias: 'l',
-        default: 10
+
+const descripcion = {
+        demand:true,
+        alias: 'd',
+        desc: 'Descripcion de la tarea por hacer'
     }
-};
+
+const completado = {
+    demand:true,
+    alias: 'c',
+    descripcion: 'Marca como completado o pendiente la tarea'
+}
 
 const argv = require('yargs')
-                .command('listar','Imprime en consola la tabla de multiplicar', opts )
-                .command('crear','Crea un archivo y dentro del archivo crea una tabla de multiplicar', opts )
+                .command( 'crear','Crear un elemento por hacer', {
+                    descripcion
+                })
+                .command( 'actualizar', 'Actualiza el estado completado de un tarea', {
+                    descripcion,
+                    completado
+                })
+                .command( 'borrar', 'Elimina un registro del archivo json', {
+                    descripcion
+                })
                 .help()
-                .argv; 
+                .argv;
+                
 module.exports = {
     argv
-}
+};
